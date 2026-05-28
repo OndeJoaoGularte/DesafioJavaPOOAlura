@@ -5,6 +5,11 @@ public class Track extends Audio {
     private String artist;
     private String genre;
 
+    public Track(String title, String artist) {
+        super(title);
+        this.artist = artist;
+    }
+
     public String getAlbum() {
         return album;
     }
@@ -27,5 +32,14 @@ public class Track extends Audio {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    @Override
+    public int getClassification() {
+        if(this.getTotalReproductions() > 200){
+            return 10;
+        }else{
+            return 7;
+        }
     }
 }
